@@ -71,36 +71,12 @@
 <div class="ucp_divider"></div>
 
 <section id="ucp_buttons">
-	{if hasPermission('view', "vote") && $config['vote']}
-		<a href="{$url}{$config.vote}" style="background-image:url({$url}application/modules/ucp/images/vote_panel.jpg)"></a>
-	{/if}
-
-	{if hasPermission('view', "donate") && $config['donate']}
-	<a href="{$url}{$config.donate}" style="background-image:url({$url}application/modules/ucp/images/donate_panel.jpg)"></a>
-	{/if}
-
-	{if hasPermission('view', "store") && $config['store']}
-		<a href="{$url}{$config.store}" style="background-image:url({$url}application/modules/ucp/images/item_store.jpg)"></a>
-	{/if}
-
-	{if hasPermission('canUpdateAccountSettings', 'ucp') && $config['settings']}
-		<a href="{$url}{$config.settings}" style="background-image:url({$url}application/modules/ucp/images/account_settings.jpg)"></a>
-	{/if}
-
-	{if hasPermission('canChangeExpansion', "ucp") && $config['expansion']}
-        <a href="{$url}{$config.expansion}" style="background-image:url({$url}application/modules/ucp/images/change_expansion.jpg)"></a>
-	{/if}
-
-	{if hasPermission('view', "teleport") && $config['teleport']}
-		<a href="{$url}{$config.teleport}" style="background-image:url({$url}application/modules/ucp/images/teleport_hub.jpg)"></a>
-	{/if}
-
-	{if hasPermission('view', "gm") && $config['gm']}
-		<a href="{$url}{$config.gm}" style="background-image:url({$url}application/modules/ucp/images/gm_panel.jpg)"></a>
-	{/if}
-
-	{if hasPermission('view', "admin") && $config['admin']}
-		<a href="{$url}{$config.admin}" style="background-image:url({$url}application/modules/ucp/images/admin_panel.jpg)"></a>
+	{if $menu_links}
+		{foreach from=$menu_links item=link}
+			<a href="{$link.link}" direct="{$link.direct_link}" {if $link.image}style="background-image:url({$url}application/modules/ucp/images/gallery/{$link.image})"{/if}>
+				<div><p>{$link.name}</p></div>
+			</a>
+		{/foreach}
 	{/if}
 	
 	<div class="clear"></div>

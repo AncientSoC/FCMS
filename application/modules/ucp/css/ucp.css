@@ -66,15 +66,39 @@
 	display:block;
 	width:330px;
 	height:93px;
-	background-position:0px 0px;
 	float:left;
 	margin-bottom:15px;
 	margin-left:12px;
-}
+	}
+	#ucp_buttons a div {
+		display: block;
+		width:100%;
+		height: 100%;
+		padding-top: 22px;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		background: rgba(0,0,0,.1);
+		}
+		#ucp_buttons a p {
+		display: block;
+		width: 100%;
+		height: 50px;
+		background: rgba(0,0,0,.5);
+		text-align: center;
+		color: #e2e3e5;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 24px;
+		text-shadow: 0 0 5px rgba(0,0,0,.8), 0 0 3px rgba(0,0,0,.4);
+		line-height: 50px;
+		}
+		#ucp_buttons a:hover div {
+		background: none;
+		}
+		#ucp_buttons a:hover p {
+		color: #30a9e0;
+		}
 
-#ucp_buttons a:hover {
-	background-position:0px 93px;
-}
 
 #ucp_characters {
 	margin-top:-20px;

@@ -7,7 +7,9 @@ class Ucp extends MX_Controller
 		parent::__construct();
 
 		$this->user->userArea();
-
+		
+		$this->load->model("menu_model");
+		
 		$this->load->config('links');
 	}
 
@@ -36,7 +38,33 @@ class Ucp extends MX_Controller
 
 			$this->cache->save("profile_characters_".$this->user->getId(), $characters, 60*60);
 		}
+		
+		$links = $this->menu_model->getMenuLinks();
 
+		if($links)
+		{
+			foreach($links as $key => $value)
+			{
+				// Check if we have  the permission, otherwise unset the row
+				if ($value['permission'] != '')
+				{
+					if (hasPermission($value['permission'], $value['permissionModule']) !== true)
+					{
+						unset($links[$key]);
+						continue;
+					}
+				}
+				
+				// Add the website path if internal link
+				if(!preg_match("/https?:\/\//", $value['link']))
+				{
+					$links[$key]['link'] = $this->template->page_url . $value['link'];
+				}
+
+				$links[$key]['name'] = langColumn($links[$key]['name']);
+			}
+		}
+		
 		$data = array(
 			"username" => $this->user->getNickname(),
 			"expansion" => $this->realms->getEmulator()->getExpansionName($this->external_account_model->getExpansion()),
@@ -50,7 +78,8 @@ class Ucp extends MX_Controller
 			"characters" => $characters,
 			"avatar" => $this->user->getAvatar($this->user->getId()),
 			"id" => $this->user->getId(),
-
+			"menu_links" => $links,
+			
 			"config" => array(
 				"vote" => $this->config->item('ucp_vote'),
 				"donate" => $this->config->item('ucp_donate'),
