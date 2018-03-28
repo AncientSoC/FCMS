@@ -56,7 +56,7 @@ class Install
     
     private function checkPhpExtensions()
     {
-        $req = array('mysqli', 'curl', 'openssl', 'soap', 'gd', 'mbstring', 'json', 'mcrypt');
+        $req = array('mysqli', 'curl', 'openssl', 'gd', 'mbstring', 'json', 'mcrypt');
         $loaded = get_loaded_extensions();
         $errors = array();
         
@@ -69,7 +69,7 @@ class Install
     
     private function checkApacheModules()
     {
-        $req = array('mod_rewrite', 'mod_headers', 'mod_expires', 'mod_deflate');
+        $req = array('mod_rewrite', 'mod_deflate');
         $loaded = apache_get_modules();
         $errors = array();
         
