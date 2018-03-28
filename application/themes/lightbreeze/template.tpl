@@ -30,13 +30,13 @@
 									{if $key == 1}
 										<!-- Dropdown -->
 										<li class="dropdown">
-											<a href="#">Dropdown</a>
+											<a href="#">Features</a>
 											<div class="dropdown-holder">
 												<ul class="navi-dropdown">							
-													<li><a href="#">How to</a></li>
-													<li><a href="#">Terms of Use</a></li>
-													<li><a href="#">References</a></li>
-													<li><a href="#">Rules</a></li>
+													<li><a href="#">Downloads</a></li>
+													<li><a href="#">Working Content</a></li>
+													<li><a href="{$url}vote">Vote</a></li>
+													<li><a href="{$url}donate">Donate</a></li>
 												</ul>
 											</div>
 										</li>
@@ -118,7 +118,7 @@
 			<div class="main_b_holder">
 			
 				<!-- News feed -->
-				<div id="news_feed" class="news_sly">
+				<!-- <div id="news_feed" class="news_sly">
 					<div class="loading_ajax">
 						<img src="{$image_path}ajax.gif" alt="{lang("lightbreeze_global_loading", "theme_lightbreeze")}" height="48" width="48" />
 					</div>
@@ -134,6 +134,7 @@
 						<div class="handle"></div>
 					</div>
 				</div>
+				-->
 				<!-- News feed.End -->
 				
 				<div class="content_holder">
