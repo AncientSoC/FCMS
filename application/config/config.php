@@ -14,8 +14,8 @@
 | path to your installation.
 |
 */
-$allowed_domains = array('localhost:8888', 'domain2.tld');
-$default_domain  = 'localhost:8888';
+$allowed_domains = array('localhost', 'domain2.tld');
+$default_domain  = 'localhost';
 
 //! dont change.
 $domain = in_array($_SERVER['HTTP_HOST'], $allowed_domains, TRUE) ? $_SERVER['HTTP_HOST'] :  $default_domain;
